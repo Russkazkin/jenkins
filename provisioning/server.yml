@@ -4,6 +4,9 @@
     roles:
       - swap
       - docker
+      - role: docker-cache
+        vars:
+          config_path: /etc/docker/dind-daemon.json
       - jenkins
 
 -   name: Set Up agent
@@ -12,5 +15,6 @@
     roles:
       - swap
       - docker
+      - docker-cache
       - java
       - agent
