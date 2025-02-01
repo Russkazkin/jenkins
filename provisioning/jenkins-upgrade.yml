@@ -1,0 +1,17 @@
+---
+-   name: Upgrade jenkins services
+    hosts: manager
+    remote_user: root
+    tasks:
+      -   name: Pull jenkins images
+          community.docker.docker_compose_v2_pull:
+            project_src: /home/deploy/jenkins
+
+      -   name: Stop jenkins services
+          community.docker.docker_compose_v2:
+            project_src: /home/deploy/jenkins
+            state: stopped
+
+      -   name: Create and start jenkins services
+          community.docker.docker_compose_v2:
+            project_src: /home/deploy/jenkins
