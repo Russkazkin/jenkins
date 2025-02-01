@@ -15,3 +15,10 @@
         - gettext-base
       state: present
       update_cache: yes
+
+-   name: Set periodic Docker prune
+    cron:
+      name: docker-prune
+      job: 'docker system prune -af --filter "until=$((7*24))h"'
+      minute: '0'
+      hour: '1'
