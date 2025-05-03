@@ -13,7 +13,7 @@
     hosts: agent
     remote_user: root
     roles:
-      - swap
+#      - swap
       - docker
       - docker-cache
       - java
